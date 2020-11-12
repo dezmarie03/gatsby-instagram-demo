@@ -9,6 +9,12 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.GATSBY_INSTAGRAM
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
