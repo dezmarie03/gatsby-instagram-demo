@@ -25,14 +25,25 @@ const Instagram = () => (
       }
     `}
     render={(data) => (
-      <div>
+      <div style={{
+        marginBottom: '1rem',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+      }}>
         {
           data.allInstagramContent.edges.map((item, i) => (
             item.node.localImage ? (
-              <div key={i}>
-                <Image
-                  fluid={item.node.localImage.childImageSharp.fluid}
-                />
+              <div>
+                <a
+                  href={item.node.link}
+                  target='_blank'
+                  rel='noopener'
+                  tabIndex='0'
+                >
+                  <Image
+                    fluid={item.node.localImage.childImageSharp.fluid}
+                  />
+                </a>
               </div>
             ) : (<div></div>)
           ))
